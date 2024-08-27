@@ -1,0 +1,18 @@
+version: "1.0"
+services:
+  host-container:
+    container_name: host_container
+    image:  host:latest
+    privileged: true
+    ports:
+      - "2222:22"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - myNetwork
+
+        
+networks:
+  myNetwork:
+    driver: bridge
